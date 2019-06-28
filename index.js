@@ -18,8 +18,7 @@ var messages = [{
 }];
 
 io.on('connection', function(socket){
-    console.log("The node with the IP: se ha conectado");
-    console.log("The node with the IP: " + socket.handshake.address + "se ha conectado");
+    console.log("The node with the IP: " + socket.handshake.address + " has been conected");
     socket.emit('messages', messages);
 });
 
