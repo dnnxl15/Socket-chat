@@ -20,6 +20,11 @@ var messages = [{
 io.on('connection', function(socket){
     console.log("The node with the IP: " + socket.handshake.address + " has been conected");
     socket.emit('messages', messages);
+
+    socket.on('add-message', function(data){
+        messages.push(data);
+        io.sockets.emit('messages', messages);
+    });
 });
 
 /*Inicia el servidor de node.js */
